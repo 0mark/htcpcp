@@ -4,3 +4,6 @@ Brewing state: PB4 (high=true)
 
 avrdude -cusbasp -p t13 -e -U flash:w:ctrl.hex
 
+Raspi GPIO:
+/sys/class/gpio/gpioX/direction
+/sys/class/gpio/gpioX/value
