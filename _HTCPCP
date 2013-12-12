@@ -7,3 +7,16 @@ avrdude -cusbasp -p t13 -e -U flash:w:ctrl.hex
 Raspi GPIO:
 /sys/class/gpio/gpioX/direction
 /sys/class/gpio/gpioX/value
+
+Kamera:
+Intel CS430
+
+Controller:
+Atttiny13
+Schrack RT42006 (8A, 250VAC)
+BC547
+4 1k
+Rote/Grüne LED
+Taster
+Kabel
+Breadboard
