@@ -28,8 +28,8 @@ GPIOs ansprechen:
 /sys/class/gpio/gpioX/value
 
 GPIO Belegung:
-0 (2 on rev. 2): start brew (Auf high ziehen, wenn ready startet die Maschine)
-1 (3 on rev. 2): brew state (Wenn high läuft die Maschine gerade)
+17: start brew (Auf high ziehen, wenn ready startet die Maschine)
+18: brew state (Wenn high läuft die Maschine gerade)
 4: ready state (Wenn high kann die Maschine gestartet werden)
 Wenn beide low: Call the operator
 
