@@ -1,17 +1,11 @@
+  AVR:
 Start brewing: PB2 (Pull to ground)
 Ready state: PB0 (high=true)
 Brewing state: PB4 (high=true)
 
 avrdude -cusbasp -p t13 -e -U flash:w:ctrl.hex
 
-Raspi GPIO:
-/sys/class/gpio/gpioX/direction
-/sys/class/gpio/gpioX/value
-
-Kamera:
-Intel CS430
-
-Controller:
+Teile:
 Atttiny13
 Schrack RT42006 (8A, 250VAC)
 BC547
@@ -20,3 +14,25 @@ Rote/Grüne LED
 Taster
 Kabel
 Breadboard
+
+
+
+  Kamera:
+Intel CS430
+
+
+
+  Raspi:
+GPIOs ansprechen:
+/sys/class/gpio/gpioX/direction
+/sys/class/gpio/gpioX/value
+
+GPIO Belegung:
+0: start brew (Auf high ziehen, wenn ready startet die Maschine)
+1: brew state (Wenn high läuft die Maschine gerade)
+4: ready state (Wenn high kann die Maschine gestartet werden)
+Wenn beide low: Call the operator
+
+Die Stromversorgung kommt direkt über den GPIO Header (die 5V vom Netzteil
+werden durchgeschleift). Das Netzteil sollte also ca 100ma mehr liefern können
+als der Raspi selber benötigt.
