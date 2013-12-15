@@ -18,7 +18,10 @@ Breadboard
 
 
   Kamera:
-Intel CS430
+Modell: Intel CS430
+Modul: gspca_spca505
+Bild Aufnemen mit fswebcam:
+  LD_PRELOAD=/usr/lib/v4l2convert.so fswebcam -d /dev/video1 img.jpg
 
 
 
