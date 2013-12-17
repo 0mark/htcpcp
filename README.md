@@ -54,3 +54,8 @@ GPIO Belegung:
 Die Stromversorgung kommt direkt über den GPIO Header (die 5V vom Netzteil
 werden durchgeschleift). Das Netzteil sollte also ca 100ma mehr liefern können
 als der Raspi selber benötigt.
+
+Kaffeemaschine
+--------------
+Leihgabe von Iso  
+Brühzeit: 8 Minuten
