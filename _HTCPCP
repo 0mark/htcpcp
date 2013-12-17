@@ -22,7 +22,8 @@ Modell: Intel CS430
 Modul: gspca_spca505
 Bild Aufnemen mit fswebcam:
   LD_PRELOAD=/usr/lib/v4l2convert.so fswebcam -d /dev/video1 img.jpg
-
+Füllstand auslesen (LD_PRELOAD muss gesetzt sein!):
+  i=voll; fswebcam -d /dev/video1 $i.jpg; convert ${i}.jpg -crop 50x140+200+90 ${i}_crop.jpg; convert ${i}_crop.jpg -grayscale rec709luma ${i}_crop_gray.jpg; convert ${i}_crop_gray.jpg -threshold 20% ${i}_crop_bw.txt; c=$(cat ${i}_crop_bw.txt | wc -l); bc=$(cat ${i}_crop_bw.txt | grep black -c); echo $(( $bc*100/$c ))
 
 
   Raspi:
