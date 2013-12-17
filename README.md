@@ -3,10 +3,11 @@ htcpcp
 
 HTPCPC gedängel für den 30c3
 
-AVR:
-Start brewing: PB2 (Pull to ground)
-Ready state: PB0 (high=true)
-Brewing state: PB4 (high=true)
+AVR
+---
+Start brewing: PB2 (Pull to ground)  
+Ready state: PB0 (high=true)  
+Brewing state: PB4 (high=true)  
 
 avrdude -cusbasp -p t13 -e -U flash:w:ctrl.hex
 
