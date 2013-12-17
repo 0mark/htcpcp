@@ -1,0 +1,3 @@
+[submodule "htcpcp"]
+	path = htcpcp
+	url = https://github.com/themad/htcpcp.git
