@@ -28,8 +28,14 @@ Füllstand auslesen (LD_PRELOAD muss gesetzt sein!):
 
   Raspi:
 GPIOs ansprechen:
-/sys/class/gpio/gpioX/direction
-/sys/class/gpio/gpioX/value
+ - aktivieren:
+   echo "4" > /sys/class/gpio/export
+ - Richtung
+   /sys/class/gpio/gpioX/direction
+ - Wert setzen/lesen
+   /sys/class/gpio/gpioX/value
+ - 17 muss auf aktive_low gesetzt werden
+   echo "1" > /sys/class/gpio/gpio17/active_low
 
 GPIO Belegung:
 17: start brew (Auf high ziehen, wenn ready startet die Maschine)
