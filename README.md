@@ -1,7 +1,6 @@
 htcpcp
 ======
-
-HTPCPC gedängel für den 30c3
+HTPCPC implementation for the 30c3.
 
 AVR
 ---
@@ -9,53 +8,76 @@ Start brewing: PB2 (Pull to ground)
 Ready state: PB0 (high=true)  
 Brewing state: PB4 (high=true)  
 
+```bash
 avrdude -cusbasp -p t13 -e -U flash:w:ctrl.hex
+```
 
-Teile
------
-- Atttiny13
-- Schrack RT42006 (8A, 250VAC)
+Partlist
+- Attiny13
+- Relais Schrack RT42006 (8A, 250VAC)
 - BC547
 - 4 1k
-- Rote/Grüne LED
-- Taster
-- Kabel
+- red & green LED
+- two push buttons
+- Wire
 - Breadboard
+
+The device  
+![The controlling device](https://files.q3t.de/a/get/1a3665a5277a68314ee4b73f74570abc)
 
 Kamera
 ------
 Modell: Intel CS430  
 Modul: gspca_spca50
 
-Bild Aufnemen mit fswebcam:  
-  LD_PRELOAD=/usr/lib/v4l2convert.so fswebcam -d /dev/video1 img.jpg
+Capture a frame with fswebcam:  
+```bash
+LD_PRELOAD=/usr/lib/v4l2convert.so fswebcam -d /dev/video1 img.jpg
+```
+This camera uses some abscure color format, hence the preloaded library.
   
-Füllstand auslesen (LD_PRELOAD muss gesetzt sein!):  
-  i=voll; fswebcam -d /dev/video1 $i.jpg; convert ${i}.jpg -crop 50x140+200+90 ${i}_crop.jpg; convert ${i}_crop.jpg -grayscale rec709luma ${i}_crop_gray.jpg; convert ${i}_crop_gray.jpg -threshold 20% ${i}_crop_bw.txt; c=$(cat ${i}_crop_bw.txt | wc -l); bc=$(cat ${i}_crop_bw.txt | grep black -c); echo $(( $bc*100/$c ))
+Read the current coffee level:  
+```bash
+export LD_PRELOAD=/usr/lib/v4l2convert.so
+fswebcam -d /dev/video1 img.jpg
+convert img.jpg -crop 50x140+200+90 img_crop.jpg
+convert img_crop.jpg -grayscale rec709luma img_crop_gray.jpg
+convert img_crop_gray.jpg -threshold 20% img_crop_bw.txt
+c=$(cat img_crop_bw.txt | wc -l)
+bc=$(cat img_crop_bw.txt | grep black -c)
+echo $(( $bc*100/$c ))
+```
+What? Easy: Take image, crop center of pot, grayscale, threshold, count black pixels and all pixels. Ratio is coffee level. Yes dudes, thats advanced image recognition!
 
 Raspi
 -----
-GPIOs ansprechen:
- - aktivieren:
-   echo "4" > /sys/class/gpio/export
- - Richtung
+Using GPIO X:
+ - first activate 
+   /sys/class/gpio/export
+ - set direction (in|out)
    /sys/class/gpio/gpioX/direction
- - Wert setzen/lesen
+ - read or set value
    /sys/class/gpio/gpioX/value
- - 17 muss auf aktive_low gesetzt werden
-   echo "1" > /sys/class/gpio/gpio17/active_low
+ - set active_low (needed for bin 17)
+   /sys/class/gpio/gpioX/active_low
 
 GPIO Belegung:  
-- 17: start brew (Auf high ziehen, wenn ready startet die Maschine)
-- 18: brew state (Wenn high läuft die Maschine gerade)
-- 4: ready state (Wenn high kann die Maschine gestartet werden)
-- Wenn beide low: Call the operator
+- 17: start brew (pull to high)
+- 18: brew state (high if brewing in progress)
+- 4: ready state (high if ready)
+if both are low: Call the operator (brewing done, refill needed)
 
-Die Stromversorgung kommt direkt über den GPIO Header (die 5V vom Netzteil
-werden durchgeschleift). Das Netzteil sollte also ca 100ma mehr liefern können
-als der Raspi selber benötigt.
+The power supply comes directly from the GPIO Header (5V from power supply are routed through). Mind that the device may need around 100mA.
 
-Kaffeemaschine
---------------
-Leihgabe von Iso  
-Brühzeit: 8 Minuten
+Coffee maker
+----------
+Lend from Iso, a secondary replacement device is available  
+Brew time: ca 7.5 minutes (8 in Firmware, to be safe)
+
+Tea pot
+-------
+
+Server
+------
+Implemented in Elisp. Implements HTCPCP. Accepts brew command. After a brew is done, and the coffee maker is not refilled, another brew command will result in an error, demanding to call the operator.
+Every not supportet action will result in a 418 (hence the teapot casing for the raspy)
