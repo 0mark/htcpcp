@@ -40,7 +40,7 @@ Read the current coffee level:
 ```bash
 export LD_PRELOAD=/usr/lib/v4l2convert.so
 fswebcam -d /dev/video1 img.jpg
-convert img.jpg -crop 50x140+200+90 img_crop.jpg
+convert img.jpg -crop 50x210+200+55 img_crop.jpg
 convert img_crop.jpg -grayscale rec709luma img_crop_gray.jpg
 convert img_crop_gray.jpg -threshold 20% img_crop_bw.txt
 c=$(cat img_crop_bw.txt | wc -l)
