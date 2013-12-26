@@ -76,7 +76,7 @@ Brew time: ca 7.5 minutes (8 in Firmware, to be safe)
 
 Tea pot
 -------
-Grannys Teapot
+Grannys Teapot  
 ![Omas Teekanne](https://files.q3t.de/a/get/352a530893b39f54e03b20a23bf3fc80)
 
 Server
