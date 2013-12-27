@@ -76,8 +76,14 @@ Brew time: ca 7.5 minutes (8 in Firmware, to be safe)
 
 Tea pot
 -------
+Grannys Teapot  
+![Omas Teekanne](https://files.q3t.de/a/get/352a530893b39f54e03b20a23bf3fc80)
 
 Server
 ------
 Implemented in Elisp. Implements HTCPCP. Accepts brew command. After a brew is done, and the coffee maker is not refilled, another brew command will result in an error, demanding to call the operator.
 Every not supportet action will result in a 418 (hence the teapot casing for the raspy)
+
+First Setup on 30c3
+-------------------
+![Done!](https://files.q3t.de/a/get/9044fb9a5b54132e47b030be9344532d)
