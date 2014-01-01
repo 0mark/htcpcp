@@ -23,7 +23,7 @@ Partlist
 - Breadboard
 
 The device  
-![The controlling device](https://files.q3t.de/a/get/1a3665a5277a68314ee4b73f74570abc)
+![The controlling device](https://files.q3t.de/a/get/76164c7904d245fc1fd803b028145b37)
 
 Circuit
 ![Circuit](https://raw.github.com/0mark/htcpcp/master/circuit.jpg)
@@ -55,6 +55,8 @@ bc=$(cat img_crop_bw.txt | grep black -c)
 echo $(( $bc*100/$c ))
 ```
 What? Easy: Take image, crop center of pot, grayscale, threshold, count black pixels and all pixels. Ratio is coffee level. Yes dudes, thats advanced image recognition!
+
+Actually, becaus of a regression in recent Kernels we could not use the Camera on the Raspi, and instead used the Camera on a PC (providing the fill level via http). This  Problem should be resolved in later Kernals.
 
 Raspi
 -----
