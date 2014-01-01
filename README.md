@@ -25,6 +25,9 @@ Partlist
 The device  
 ![The controlling device](https://files.q3t.de/a/get/1a3665a5277a68314ee4b73f74570abc)
 
+Circuit
+![Circuit](https://raw.github.com/0mark/htcpcp/master/circuit.jpg)
+
 Kamera
 ------
 Modell: Intel CS430  
