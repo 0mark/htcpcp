@@ -16,8 +16,8 @@ Partlist
 - Attiny13
 - Relais Schrack RT42006 (8A, 250VAC)
 - BC547
-- 4 1k
-- red & green LED
+- 5 1k
+- green LED
 - two push buttons
 - Wire
 - Breadboard
@@ -27,6 +27,10 @@ The device
 
 Circuit
 ![Circuit](https://raw.github.com/0mark/htcpcp/master/circuit.jpg)
+Connect Pin N of J1 to
+- 1 -> Start brewign
+- 2 -> Ready State
+- 3 -> Brew State
 
 Kamera
 ------
