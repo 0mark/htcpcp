@@ -96,3 +96,7 @@ Every not supportet action will result in a 418 (hence the teapot casing for the
 First Setup on 30c3
 -------------------
 ![Done!](https://files.q3t.de/a/get/9044fb9a5b54132e47b030be9344532d)
+
+Note the ready state button taped aside the machine. Its labeled "magic". But because of tight time restriction, we had no "more nagic" button anywhere, just a "mundane" reset button on the breadboard.
+
+We brewedaround 6-8 pots of coffee over the time of the congress, of which two where started when we wherent at our assembly, and at least another three by people other than us.
