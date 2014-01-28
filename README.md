@@ -23,7 +23,7 @@ Partlist
 - Breadboard
 
 The device  
-![The controlling device](https://files.q3t.de/a/get/76164c7904d245fc1fd803b028145b37)
+![The controlling device](http://files.q3t.de/a/get/76164c7904d245fc1fd803b028145b37)
 
 Circuit
 ![Circuit](https://raw.github.com/0mark/htcpcp/master/circuit.jpg)
@@ -86,7 +86,7 @@ Brew time: ca 7.5 minutes (8 in Firmware, to be safe)
 Tea pot
 -------
 Grannys Teapot  
-![Omas Teekanne](https://files.q3t.de/a/get/352a530893b39f54e03b20a23bf3fc80)
+![Omas Teekanne](http://files.q3t.de/a/get/352a530893b39f54e03b20a23bf3fc80)
 
 Server
 ------
@@ -95,7 +95,7 @@ Every not supportet action will result in a 418 (hence the teapot casing for the
 
 First Setup on 30c3
 -------------------
-![Done!](https://files.q3t.de/a/get/9044fb9a5b54132e47b030be9344532d)
+![Done!](http://files.q3t.de/a/get/9044fb9a5b54132e47b030be9344532d)
 
 Note the ready state button taped aside the machine. Its labeled "magic". But because of tight time restriction, we had no "more nagic" button anywhere, just a "mundane" reset button on the breadboard.
 
