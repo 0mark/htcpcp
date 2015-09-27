@@ -26,7 +26,7 @@ int main(void) {
     PORTB |= (1<<PB4); // start brewing
     PORTB &= ~(1 << PB0); // not ready
 
-    _delay_ms(2000); // Wait
+    _delay_ms(480000); // Wait
 
     PORTB &= ~(1<<PB4); // stop brewing
   }
